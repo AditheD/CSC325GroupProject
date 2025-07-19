@@ -1,3 +1,5 @@
+package src;
+
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
 import javafx.event.ActionEvent;
@@ -5,7 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-
+import src.appLauncher;
 
 
 public  class registerUser {
@@ -14,17 +16,21 @@ public  class registerUser {
      private TextField usernameField;
      private PasswordField passwordField;
 
+    public registerUser() {
+
+    }
+
 
     private void regRecord(ActionEvent event) {
         String email = emailField.getText().trim();
         String phone = phoneField.getText().trim();
         String password = passwordField.getText().trim();
         String name = usernameField.getText().trim();
-        registerUser(email, phone, password, name);
+        new registerUser(email, phone, password, name);
     }
 
-    public void registerUser(String email, String phoneNumber, String pass, String username) {
-        if(email.isEmpty() || !email.contains("@")) {
+    public registerUser(String email, String phoneNumber, String pass, String username) {
+        if(!email.contains("@")) {
             showAlert("Invalid email address", "Please enter a valid email address");
             return;
         }
