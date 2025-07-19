@@ -1,3 +1,5 @@
+package src;
+
 import com.google.firebase.auth.FirebaseAuth;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -8,6 +10,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.cloud.FirestoreClient;
 import com.google.cloud.firestore.Firestore;
 
+import java.awt.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,6 +28,7 @@ public class appLauncher extends Application {
         SplashScreen splash = new SplashScreen(primaryStage);
         splash.show();
     }
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -34,6 +38,5 @@ public class appLauncher extends Application {
         FirebaseOptions options = new FirebaseOptions.Builder().setCredentials(GoogleCredentials.fromStream(serviceAccount)).build();
         FirebaseApp.initializeApp(options);
         System.out.println("Firebase initialized");
-
     }
 }
