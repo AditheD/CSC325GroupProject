@@ -1,3 +1,5 @@
+package src;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
@@ -5,9 +7,11 @@ import javafx.stage.Stage;
 import javafx.util.*;
 import javafx.animation.*;
 
+import java.util.Objects;
+
 
 public class SplashScreen {
-    private Stage stage;
+    private final Stage stage;
     //constructor
     public SplashScreen(Stage stage) {
         this.stage = stage;
@@ -28,7 +32,7 @@ public class SplashScreen {
         stage.show();
 
         //connecting style.css
-        scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/style.css")).toExternalForm());
 
         //Timed transition to Login Page
         PauseTransition pause = new PauseTransition(Duration.seconds(3));
